@@ -1,8 +1,8 @@
 # JEA-API-Python
-Python examples showing how to use the ENSIMS Web Service APIs
+Python examples showing how to use the ENSIMS Web Service APIs, including:
 
-Users Api - For managing account and files
+**Users Api** - For managing account and files
 
-JESS Api - For running simulation jobs on JESS and viewing E+ files
+**JESS Api** - For running simulation jobs on JESS and viewing E+ files
 
-JEA Api - For accessing the JEA online optimisation platform
+**JEA Api** - For accessing the JEA online optimisation platform
