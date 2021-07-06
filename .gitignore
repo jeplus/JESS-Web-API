@@ -1,2 +1,11 @@
+.gitignore
 .ipynb_checkpoints
+.vscode
+_pycache_
+temp
 download
+*.zip
+*.dat
+test*.*
+*_local.ipynb
+*.pyc

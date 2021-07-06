@@ -1,0 +1,259 @@
+{
+  "projectType" : "EPLUS",
+  "projectID" : "G",
+  "projectNotes" : "New project",
+  "weatherDir" : "weather/",
+  "weatherFile" : "cntr_Heathrow_TRY.epw; 2030_Heathrow_a1fi_50_percentile_TRY.epw; 2050_Heathrow_a1fi_50_percentile_TRY.epw; 2080_Heathrow_a1fi_50_percentile_TRY.epw",
+  "idfdir" : "./",
+  "idftemplate" : "shoebox.idf",
+  "dckdir" : "./",
+  "dcktemplate" : null,
+  "outputFileNames" : "trnsysout.csv",
+  "paramFile" : null,
+  "rvifile" : null,
+  "parameters" : [ {
+    "paramType" : "PARAMETRICS",
+    "id" : "P0",
+    "name" : "Timestep",
+    "description" : "Timestep",
+    "searchString" : "@@ts@@",
+    "type" : "INTEGER",
+    "valuesString" : "{2,4,6}",
+    "selectedAltValue" : 2
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P1",
+    "name" : "SolarDist",
+    "description" : "Solar distribution method",
+    "searchString" : "@@sd@@",
+    "type" : "INTEGER",
+    "valuesString" : "{FullExterior, FullInteriorAndExterior}",
+    "selectedAltValue" : 1
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P2",
+    "name" : "Orientation",
+    "description" : "Orientation",
+    "searchString" : "@@ori@@",
+    "type" : "INTEGER",
+    "valuesString" : "[0:15:350]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P3",
+    "name" : "Insulation",
+    "description" : "Insulation thickness (m) walls",
+    "searchString" : "@@ins@@",
+    "type" : "DOUBLE",
+    "valuesString" : "{0.01}&[0.05:0.05:0.3]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P4",
+    "name" : "Insulation2",
+    "description" : "Insulation for Roof and floor",
+    "searchString" : "@@ins2@@",
+    "type" : "DOUBLE",
+    "valuesString" : "{0.01}&[0.05:0.05:0.3]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P5",
+    "name" : "WinConstr",
+    "description" : "Window construction",
+    "searchString" : "@@win_constr@@",
+    "type" : "DISCRETE",
+    "valuesString" : "{\"Sgl Clr 6mm\", \"Dbl Clr 3mm/6mm Air\", \" Dbl Clr 3mm/13mm Arg\", \"Dbl LoE (e2=.4) Clr 3mm/13mm Arg\", \"Trp Clr 3mm/13mm Arg\", \"Trp LoE (e5=.1) Clr 3mm/13mm Arg\", \"Trp LoE (e2=e5=.1) Clr 3mm/13mm Arg\"}",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P6",
+    "name" : "WindowWidth",
+    "description" : "Width of the window",
+    "searchString" : "@@win_w@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[0.2:0.2:3.6]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P7",
+    "name" : "WindowX",
+    "description" : "X coords of the corner",
+    "searchString" : "@@win_x@@",
+    "type" : "INTEGER",
+    "valuesString" : "@calc(2-P4/2)",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P8",
+    "name" : "Overhang",
+    "description" : "Overhang depth",
+    "searchString" : "@@overhang@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[0.1:0.1:1.2]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P9",
+    "name" : "Ventilation",
+    "description" : "Design vent rate",
+    "searchString" : "@@ach@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[0.5:0.5:5]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P10",
+    "name" : "HeatingSP",
+    "description" : "Heating setpoint",
+    "searchString" : "@@heating@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[18:.5:23]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P11",
+    "name" : "CoolingSP",
+    "description" : "Cooling setpoint",
+    "searchString" : "@@cooling@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[24:.5:29]",
+    "selectedAltValue" : 0
+  } ],
+  "rvx" : {
+    "notes" : "",
+    "rvis" : [ ],
+    "csvs" : [ {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "District Heating [kWh]",
+      "fromRow" : "Heating",
+      "tableName" : "heating",
+      "columnHeaders" : "Heating [kWh]",
+      "usedInCalc" : true
+    }, {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "District Cooling [kWh]",
+      "fromRow" : "Cooling",
+      "tableName" : "cooling",
+      "columnHeaders" : "Cooling [kWh]",
+      "usedInCalc" : true
+    }, {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "Electricity [kWh]",
+      "fromRow" : "Interior Lighting",
+      "tableName" : "lighting",
+      "columnHeaders" : "Lighting [kWh]",
+      "usedInCalc" : true
+    }, {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "Electricity [kWh]",
+      "fromRow" : "Interior Equipment",
+      "tableName" : "equipment",
+      "columnHeaders" : "Equipment [kWh]",
+      "usedInCalc" : true
+    }, {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "System Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "Time Not Comfortable Based on Simple ASHRAE 55-2004",
+      "fromColumn" : "Summer or Winter Clothes [hr]",
+      "fromRow" : "ZONE1",
+      "tableName" : "discomfort",
+      "columnHeaders" : "Discomfort hours [hr]",
+      "usedInCalc" : true
+    } ],
+    "sqls" : [ ],
+    "scripts" : [ ],
+    "userSupplied" : [ ],
+    "trns" : [ ],
+    "userVars" : [ {
+      "identifier" : "v1",
+      "caption" : "Heating [kWh]",
+      "formula" : "c0",
+      "report" : true
+    }, {
+      "identifier" : "v2",
+      "caption" : "Cooling [kWh]",
+      "formula" : "c1",
+      "report" : true
+    }, {
+      "identifier" : "v3",
+      "caption" : "Linghting [kWh]",
+      "formula" : "c2",
+      "report" : true
+    }, {
+      "identifier" : "v4",
+      "caption" : "Discomfort [hrs]",
+      "formula" : "c4",
+      "report" : true
+    } ],
+    "objectives" : [ {
+      "identifier" : "t1",
+      "caption" : "Total heating [kWh]",
+      "formula" : "v1",
+      "scaling" : false,
+      "min" : 0.0,
+      "max" : 1.0,
+      "weight" : 1.0,
+      "enabled" : true
+    }, {
+      "identifier" : "t2",
+      "caption" : "Total cooling [kWh]",
+      "formula" : "v2",
+      "scaling" : false,
+      "min" : 0.0,
+      "max" : 1.0,
+      "weight" : 1.0,
+      "enabled" : true
+    } ],
+    "constraints" : [ {
+      "identifier" : "s1",
+      "caption" : "Lighting consumption [kWh]",
+      "formula" : "v3",
+      "scaling" : true,
+      "lb" : 0.0,
+      "ub" : 150.0,
+      "min" : 0.0,
+      "max" : 500.0,
+      "weight" : 1.0,
+      "enabled" : true
+    }, {
+      "identifier" : "s2",
+      "caption" : "Discomfort [Hrs]",
+      "formula" : "v4",
+      "scaling" : true,
+      "lb" : 0.0,
+      "ub" : 80.0,
+      "min" : 0.0,
+      "max" : 1500.0,
+      "weight" : 1.0,
+      "enabled" : true
+    } ]
+  },
+  "execSettings" : {
+    "numThreads" : 16,
+    "workDir" : "..\\output\\",
+    "subSet" : 2,
+    "sampleOpt" : "SHUFFLE",
+    "randomSeed" : 12345,
+    "numberOfJobs" : 10,
+    "jobListFile" : "select job list file ...",
+    "rerunAll" : true,
+    "keepJEPlusFiles" : true,
+    "keepEPlusFiles" : true,
+    "deleteSelectedFiles" : false,
+    "selectedFiles" : "*.dxf *.htm *.mtd *.mdd *.rdd *.shd *.out *.audit *.eio *.idd *.bnd *.ini"
+  }
+}
