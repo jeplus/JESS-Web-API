@@ -1,0 +1,94 @@
+{
+  "projectType" : "EPLUS",
+  "projectID" : "G",
+  "projectNotes" : "New project",
+  "weatherDir" : "./",
+  "weatherFile" : "cntr_Islington_TRY.epw",
+  "idfdir" : "./",
+  "idftemplate" : "shoebox-residential-main.imf",
+  "dckdir" : "./",
+  "outputFileNames" : "trnsysout.csv",
+  "parameters" : [ {
+    "paramType" : "PARAMETRICS",
+    "id" : "P0",
+    "name" : "Orientation",
+    "description" : "Orientation by north axis",
+    "searchString" : "@@ori@@",
+    "type" : "INTEGER",
+    "valuesString" : "[0:15:350]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P1",
+    "name" : "Variable 2",
+    "description" : "Test variable 2",
+    "searchString" : "@@var2@@",
+    "type" : "INTEGER",
+    "valuesString" : "[1:1:10]",
+    "selectedAltValue" : 0
+  } ],
+  "rvx" : {
+    "notes" : "",
+    "rvis" : [ ],
+    "csvs" : [ {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "Electricity [kWh]",
+      "fromRow" : "Total End Uses",
+      "tableName" : "electricity",
+      "columnHeaders" : "Electricity [kWh]",
+      "usedInCalc" : true
+    }, {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "Natural Gas [kWh]",
+      "fromRow" : "Total End Uses",
+      "tableName" : "gas",
+      "columnHeaders" : "Natural Gas [kWh]",
+      "usedInCalc" : true
+    }, {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "Comfort and Setpoint Not Met Summary",
+      "fromColumn" : "Facility [Hours]",
+      "fromRow" : "Time Not Comfortable Based on Simple ASHRAE 55-2004",
+      "tableName" : "discomfort",
+      "columnHeaders" : "Discomfort [hrs]",
+      "usedInCalc" : true
+    } ],
+    "sqls" : [ ],
+    "scripts" : [ ],
+    "userSupplied" : [ ],
+    "trns" : [ ],
+    "userVars" : [ ],
+    "objectives" : [ ],
+    "constraints" : [ ]
+  },
+  "execSettings" : {
+    "numThreads" : 16,
+    "workDir" : "../output/",
+    "subSet" : 1,
+    "sampleOpt" : "SHUFFLE",
+    "randomSeed" : 12345,
+    "numberOfJobs" : 4,
+    "jobListFile" : "select job list file ...",
+    "rerunAll" : true,
+    "keepJEPlusFiles" : true,
+    "keepEPlusFiles" : true,
+    "deleteSelectedFiles" : false,
+    "selectedFiles" : "*.dxf *.htm *.mtd *.mdd *.rdd *.shd *.out *.audit *.eio *.idd *.bnd *.ini",
+    "timeout" : 0,
+    "steps" : {
+      "runSimulations" : true,
+      "jobListFile" : "joblist_out.csv",
+      "writeJobList" : true,
+      "prepareJobs" : true,
+      "collectResults" : true
+    }
+  }
+}

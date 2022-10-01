@@ -9,3 +9,4 @@ download
 test*.*
 *_local.ipynb
 *.pyc
+JESS_API_example_extended.ipynb

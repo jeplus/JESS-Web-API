@@ -1,0 +1,52 @@
+#####################################################
+# Daysim Material File           
+#####################################################
+# This file has been created with radfiles2daysim     
+# Copyright (c) Christoph Reinhart           	      
+# National Research Council Canada           	      
+# IRC, Lighting Group                               
+# Ont K1A 0R6, Canada                               
+#####################################################
+ 
+# radfiles2daysima is a converter used by the DAYSIM GUI to
+# import regular RADIANCE scene and material into DAYSIM
+# format, i.e. only materials supported by Daysim are 
+# admitted. Those admitted are turned monochrome.
+ 
+# This file contains the definitions of all materials in
+# the RADIANCE scene.
+# The scene geometry is stored in '.\dbmodel_geometry.rad'.
+ 
+
+# SOURCE FILE: dbmodel.rad 
+
+void plastic 96 0 0 5 0.6000 0.6000 0.6000 0.0000 0.2000 
+
+void plastic 62 0 0 5 0.4000 0.4000 0.4000 0.0000 0.2000 
+
+void plastic 212 0 0 5 0.3000 0.3000 0.3000 0.0000 0.2000 
+
+void plastic 8 0 0 5 0.4000 0.4000 0.4000 0.0000 0.2000 
+
+void plastic 108 0 0 5 0.5000 0.5000 0.5000 0.0000 0.2000 
+
+void plastic 231 0 0 5 0.3000 0.3000 0.3000 0.0000 0.2000 
+
+void plastic 5 0 0 5 0.3000 0.3000 0.3000 0.0000 0.2000 
+
+void plastic 66 0 0 5 0.5000 0.5000 0.5000 0.0000 0.2000 
+
+void glass glazing10000 0 0 3 0.8107 0.8107 0.8107 
+
+void plastic 48 0 0 5 0.2200 0.2200 0.2200 0.0000 0.2000 
+
+void plastic 1 0 0 5 0.4000 0.4000 0.4000 0.0000 0.2000 
+
+void plastic 10000 0 0 5 0.4000 0.4000 0.4000 0.0000 0.2000 
+
+void plastic 2 0 0 5 0.3000 0.3000 0.3000 0.0000 0.2000 
+
+void plastic 143 0 0 5 0.3000 0.3000 0.3000 0.0000 0.2000 
+
+void plastic 61 0 0 5 0.4000 0.4000 0.4000 0.0000 0.2000 
+

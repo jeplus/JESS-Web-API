@@ -1,0 +1,85 @@
+#############################
+# Example DAYSIM header file
+#############################
+project_name         DaysimExample
+project_directory    .\
+bin_directory        Daysim\bin\
+tmp_directory        tmp\
+Template_File        Daysim\template\DefaultTemplate.htm
+
+###################
+# site information
+###################
+place                40 Edward Street
+latitude             51.15
+longitude            -0.18
+time_zone            0
+site_elevation       117
+time_step            60
+wea_data_short_file  in.wea
+wea_data_short_file_units 1
+lower_direct_threshold    2
+lower_diffuse_threshold   2
+output_units             2
+
+#######################
+# building information
+#######################
+material_file         dbmodel_material.rad
+geometry_file         dbmodel_geometry.rad
+radiance_source_files 1, dbmodel.rad
+sensor_file           trace.in
+AdaptiveZoneApplies   0
+dgp_image_x_size      500
+dgp_image_y_size      500
+
+#################################
+# Radiance simulation parameters
+#################################
+ab 5
+ad 2048
+as 1024
+ar 512
+aa .2
+lr 6
+st 0.1500
+sj 1.0000
+lw 0.0040000
+dj 0.0000
+ds 0.200
+dr 2
+dp 512
+
+#############################
+# dynamic simulation options
+##############################
+
+#===================
+#= user description
+#===================
+occupancy 5 dbmodel_occ.csv
+minimum_illuminance_level 300
+daylight_savings_time 1
+
+
+#==========================
+#= shading control system
+#==========================
+shading 1 dbmodel dbmodel.dc dbmodel.ill
+
+
+#==========================
+#= electric lighting system
+#==========================
+
+#sensor_file_info 0 0 0 0
+ 
+
+
+######################
+# daylighting results
+######################
+daylight_autonomy_active_RGB dbmodel_autonomy.DA
+electric_lighting dbmodel_electriclighting.htm
+direct_sunlight_file dbmodel.dir
+thermal_simulation dbmodel_intgain.csv

@@ -1,0 +1,388 @@
+! Single-zone residential space with one window. Gas heating and hot water system
+! Source file: \shoebox\shoebox-residential.dsb
+! Part 2 - Materials and constructions
+ 
+! Version, 8.9.0.001;                               !- Version Identifier
+
+
+!Material:InfraredTransparent,
+!IRTMaterial; !- Name
+
+!Construction,
+!IRTSurface,  !- Name
+!IRTMaterial; !- Outside Layer
+
+Material:NoMass, 
+LinearBridgingLayer,                  ! Material Name
+Rough,                                ! Roughness
+0.6267 ,                              ! Resistance {M**2K/W} will give Total Resistance 1
+0.0100000 ,                           ! Thermal Absorptance
+0.0100000 ,                           ! Solar Absorptance
+0.0100000 ;                           ! Visible Absorptance
+
+Construction,
+LinearBridgingConstruction,           !- Name
+LinearBridgingLayer;                  !- Layer
+
+
+Material:InfraredTransparent,
+IRTMaterial; !- Name
+
+Construction,
+IRTSurface,  !- Name
+IRTMaterial; !- Outside Layer
+
+
+WindowMaterial:Gas,Gas 1002,                          !- AIR 13MM
+   Air,                                           !- Gas type (Air - Argon - Krypton - Xenon - SF6 - Custom)
+    .013;                                         !- Thickness {m}
+
+WindowMaterial:Gas,Half thickness 1002,           !- AIR 13MM
+   Air,                                           !- Gas type (Air - Argon - Krypton - Xenon - SF6 - Custom)
+    .0065;                                        !- Thickness {m}
+
+
+
+WindowMaterial:Glazing,Glass 2,                         !- Generic CLEAR 3MM
+   SpectralAverage,                               !- Optical data type {SpectralAverage or Spectral}
+   ,                                              !- Name of spectral data set when Optical Data Type = Spectral
+   .003,                                          !- Thickness {m}
+   .837,                                          !- Solar transmittance at normal incidence
+   .075,                                          !- Solar reflectance at normal incidence: front side
+   .075,                                          !- Solar reflectance at normal incidence: back side
+   .898,                                          !- Visible transmittance at normal incidence
+   .081,                                          !- Visible reflectance at normal incidence: front side
+   .081,                                          !- Visible reflectance at normal incidence: back side
+   .0,                                            !- IR transmittance at normal incidence
+   .84,                                           !- IR emissivity: front side
+   .84,                                           !- IR emissivity: back side
+   .9,                                            !- Conductivity {W/m-K}
+   1;                                             !- Dirt Correction Factor for Solar and Visible Transmittance
+
+WindowMaterial:Glazing,Glass 38,                        !- Generic PYR B CLEAR 3MM
+   SpectralAverage,                               !- Optical data type {SpectralAverage or Spectral}
+   ,                                              !- Name of spectral data set when Optical Data Type = Spectral
+   .003,                                          !- Thickness {m}
+   .740,                                          !- Solar transmittance at normal incidence
+   .090,                                          !- Solar reflectance at normal incidence: front side
+   .100,                                          !- Solar reflectance at normal incidence: back side
+   .820,                                          !- Visible transmittance at normal incidence
+   .110,                                          !- Visible reflectance at normal incidence: front side
+   .120,                                          !- Visible reflectance at normal incidence: back side
+   .0,                                            !- IR transmittance at normal incidence
+   .84,                                           !- IR emissivity: front side
+   .20,                                           !- IR emissivity: back side
+   .9,                                            !- Conductivity {W/m-K}
+   1;                                             !- Dirt Correction Factor for Solar and Visible Transmittance
+! External Rendering- thickness 0.025
+Material, External Rendering_.O25,
+   Rough,                                         !- Roughness
+   .025,                                          !- Thickness {m}
+   0.5,                                           !- Conductivity {w/m-K}
+   1300,                                          !- Density {kg/m3}
+   1000,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.7,                                           !- Solar Absorptance
+   0.7;                                           !- Visible Absorptance
+
+! MW Stone Wool (rolls)- thickness 0.1439
+Material, MW Stone Wool (rolls)_.1439,
+   Rough,                                         !- Roughness
+   .1439,                                         !- Thickness {m}
+   0.04,                                          !- Conductivity {w/m-K}
+   30,                                            !- Density {kg/m3}
+   840,                                           !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.6,                                           !- Solar Absorptance
+   0.6;                                           !- Visible Absorptance
+
+! Timber Flooring- thickness 0.005
+Material, Timber Flooring_.OO5,
+   Rough,                                         !- Roughness
+   .005,                                          !- Thickness {m}
+   0.14,                                          !- Conductivity {w/m-K}
+   650,                                           !- Density {kg/m3}
+   1200,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.78,                                          !- Solar Absorptance
+   0.78;                                          !- Visible Absorptance
+
+! Asphalt 1- thickness 0.01
+Material, Asphalt 1_.O1,
+   Rough,                                         !- Roughness
+   .01,                                           !- Thickness {m}
+   0.7,                                           !- Conductivity {w/m-K}
+   2100,                                          !- Density {kg/m3}
+   1000,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.85,                                          !- Solar Absorptance
+   0.9;                                           !- Visible Absorptance
+
+! MW Glass Wool (rolls)- thickness 0.1
+Material, MW Glass Wool (rolls)_.1,
+   Rough,                                         !- Roughness
+   .1,                                            !- Thickness {m}
+   0.04,                                          !- Conductivity {w/m-K}
+   12,                                            !- Density {kg/m3}
+   840,                                           !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.6,                                           !- Solar Absorptance
+   0.6;                                           !- Visible Absorptance
+
+! Plasterboard- thickness 0.013
+Material, Plasterboard_.O13,
+   Rough,                                         !- Roughness
+   .013,                                          !- Thickness {m}
+   0.25,                                          !- Conductivity {w/m-K}
+   2800,                                          !- Density {kg/m3}
+   896,                                           !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.5,                                           !- Solar Absorptance
+   0.5;                                           !- Visible Absorptance
+
+! Brickwork Outer- thickness 0.1
+Material, Brickwork Outer_.1,
+   Rough,                                         !- Roughness
+   .1,                                            !- Thickness {m}
+   0.84,                                          !- Conductivity {w/m-K}
+   1700,                                          !- Density {kg/m3}
+   800,                                           !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.7,                                           !- Solar Absorptance
+   0.7;                                           !- Visible Absorptance
+
+! MW Stone Wool (standard board)- thickness 0.05
+Material, MW Stone Wool (standard board)_.O5,
+   Rough,                                         !- Roughness
+   .05,                                           !- Thickness {m}
+   0.038,                                         !- Conductivity {w/m-K}
+   40,                                            !- Density {kg/m3}
+   840,                                           !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.6,                                           !- Solar Absorptance
+   0.6;                                           !- Visible Absorptance
+
+! Concrete Block (Medium)- thickness 0.1
+Material, Concrete Block (Medium)_.1,
+   Rough,                                         !- Roughness
+   .1,                                            !- Thickness {m}
+   0.51,                                          !- Conductivity {w/m-K}
+   1400,                                          !- Density {kg/m3}
+   1000,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.6,                                           !- Solar Absorptance
+   0.6;                                           !- Visible Absorptance
+
+! Gypsum Plastering- thickness 0.015
+Material, Gypsum Plastering_.O15,
+   Rough,                                         !- Roughness
+   .015,                                          !- Thickness {m}
+   0.4,                                           !- Conductivity {w/m-K}
+   1000,                                          !- Density {kg/m3}
+   1000,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.5,                                           !- Solar Absorptance
+   0.5;                                           !- Visible Absorptance
+
+! Roofing Felt- thickness 0.005
+Material, Roofing Felt_.OO5,
+   Rough,                                         !- Roughness
+   .005,                                          !- Thickness {m}
+   0.19,                                          !- Conductivity {w/m-K}
+   960,                                           !- Density {kg/m3}
+   837,                                           !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.8,                                           !- Solar Absorptance
+   0.8;                                           !- Visible Absorptance
+
+! Clay Tile (roofing)- thickness 0.025
+Material, Clay Tile (roofing)_.O25,
+   Rough,                                         !- Roughness
+   .025,                                          !- Thickness {m}
+   1,                                             !- Conductivity {w/m-K}
+   2000,                                          !- Density {kg/m3}
+   800,                                           !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.7,                                           !- Solar Absorptance
+   0.7;                                           !- Visible Absorptance
+
+! XPS Extruded Polystyrene  - CO2 Blowing- thickness 0.0795
+Material, XPS Extruded Polystyrene  - CO2 Blowing_.O795,
+   Rough,                                         !- Roughness
+   .0795,                                         !- Thickness {m}
+   0.034,                                         !- Conductivity {w/m-K}
+   35,                                            !- Density {kg/m3}
+   1400,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.6,                                           !- Solar Absorptance
+   0.6;                                           !- Visible Absorptance
+
+! Cast Concrete (Lightweight)- thickness 0.1
+Material, Cast Concrete (Lightweight)_.1,
+   Rough,                                         !- Roughness
+   .1,                                            !- Thickness {m}
+   0.38,                                          !- Conductivity {w/m-K}
+   1200,                                          !- Density {kg/m3}
+   1000,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.6,                                           !- Solar Absorptance
+   0.6;                                           !- Visible Absorptance
+
+! Cast Concrete- thickness 0.1
+Material, Cast Concrete_.1,
+   Rough,                                         !- Roughness
+   .1,                                            !- Thickness {m}
+   1.13,                                          !- Conductivity {w/m-K}
+   2000,                                          !- Density {kg/m3}
+   1000,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.6,                                           !- Solar Absorptance
+   0.6;                                           !- Visible Absorptance
+
+! Floor/Roof Screed- thickness 0.07
+Material, Floor/Roof Screed_.O7,
+   Rough,                                         !- Roughness
+   .07,                                           !- Thickness {m}
+   0.41,                                          !- Conductivity {w/m-K}
+   1200,                                          !- Density {kg/m3}
+   840,                                           !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.73,                                          !- Solar Absorptance
+   0.73;                                          !- Visible Absorptance
+
+! Urea Formaldehyde Foam- thickness 0.1327
+Material, Urea Formaldehyde Foam_.1327,
+   Rough,                                         !- Roughness
+   .1327,                                         !- Thickness {m}
+   0.04,                                          !- Conductivity {w/m-K}
+   10,                                            !- Density {kg/m3}
+   1400,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.6,                                           !- Solar Absorptance
+   0.6;                                           !- Visible Absorptance
+
+! Timber Flooring- thickness 0.03
+Material, Timber Flooring_.O3,
+   Rough,                                         !- Roughness
+   .03,                                           !- Thickness {m}
+   0.14,                                          !- Conductivity {w/m-K}
+   650,                                           !- Density {kg/m3}
+   1200,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.78,                                          !- Solar Absorptance
+   0.78;                                          !- Visible Absorptance
+
+! Plywood (Heavyweight)- thickness 0.01
+Material, Plywood (Heavyweight)_.O1,
+   Rough,                                         !- Roughness
+   .01,                                           !- Thickness {m}
+   0.15,                                          !- Conductivity {w/m-K}
+   700,                                           !- Density {kg/m3}
+   1420,                                          !- Specific Heat {J/kg-K}
+   0.9,                                           !- Thermal Emittance
+   0.78,                                          !- Solar Absorptance
+   0.78;                                          !- Visible Absorptance
+
+
+! Project ground floor
+Construction, Project ground floor,
+   Urea Formaldehyde Foam_.1327,                  !- .1327m
+   Cast Concrete_.1,                              !- .1m
+   Floor/Roof Screed_.O7,                         !- .07m
+   Timber Flooring_.O3;                           !- .03m
+
+! <Previous reversed>
+Construction, Project ground floor_Rev,
+   Timber Flooring_.O3,                           !- .03m
+   Floor/Roof Screed_.O7,                         !- .07m
+   Cast Concrete_.1,                              !- .1m
+   Urea Formaldehyde Foam_.1327;                  !- .1327m
+
+! Project external floor
+Construction, Project external floor,
+   External Rendering_.O25,                       !- .025m
+   MW Stone Wool (rolls)_.1439,                   !- .1439m
+   Timber Flooring_.OO5;                          !- .005m
+
+! <Previous reversed>
+Construction, Project external floor_Rev,
+   Timber Flooring_.OO5,                          !- .005m
+   MW Stone Wool (rolls)_.1439,                   !- .1439m
+   External Rendering_.O25;                       !- .025m
+
+! Special material to represent an R-value for the next construction
+Material:NoMass, 3_RVAL_3,                        !- Material name - Air gap >=25mm
+   Rough,                                         !- Roughness
+   .18,                                           !- Resistance {m2-K/w}
+   0.9,                                           !- Thermal Emittance
+   0.7,                                           !- Solar Absorptance
+   0.7;                                           !- Visible Absorptance
+
+! Project flat roof
+Construction, Project flat roof,
+   Asphalt 1_.O1,                                 !- .01m
+   MW Glass Wool (rolls)_.1,                      !- .1m
+   3_RVAL_3,                                      !- R-value
+   Plasterboard_.O13;                             !- .013m
+
+! Special material to represent an R-value for the next construction
+Material:NoMass, 4_RVAL_2,                        !- Material name - Air gap >=25mm
+   Rough,                                         !- Roughness
+   .18,                                           !- Resistance {m2-K/w}
+   0.9,                                           !- Thermal Emittance
+   0.7,                                           !- Solar Absorptance
+   0.7;                                           !- Visible Absorptance
+
+! <Previous reversed>
+Construction, Project flat roof_Rev,
+   Plasterboard_.O13,                             !- .013m
+   4_RVAL_2,                                      !- R-value
+   MW Glass Wool (rolls)_.1,                      !- .1m
+   Asphalt 1_.O1;                                 !- .01m
+
+! Brick/block wall (insulated to 1985 regs)
+Construction, Brick/block wall (insulated to 1985 regs),
+   Brickwork Outer_.1,                            !- .1m
+   MW Stone Wool (standard board)_.O5,            !- .05m
+   Concrete Block (Medium)_.1,                    !- .1m
+   Gypsum Plastering_.O15;                        !- .015m
+
+! <Previous reversed>
+Construction, Brick/block wall (insulated to 1985 regs)_Rev,
+   Gypsum Plastering_.O15,                        !- .015m
+   Concrete Block (Medium)_.1,                    !- .1m
+   MW Stone Wool (standard board)_.O5,            !- .05m
+   Brickwork Outer_.1;                            !- .1m
+
+
+Construction,Window Type 1001,                                !- Project external glazing - Material layer names follow:
+   Glass 38,                                            !- Generic PYR B CLEAR 3MM
+   Gas 1002,                                          !- AIR 13MM
+   Glass 2;                                             !- Generic CLEAR 3MM
+
+WindowProperty:FrameAndDivider, Frame 1,                !- Frame/divider name
+   0.04,                                          !- Frame width
+   0.0,                                           !- Frame outside projection
+   0.0,                                           !- Frame inside projection
+   9.5,                                           !- Frame Conductance
+   1.0,                                           !- Ratio of frame-edge glass conductance to centre of glass conductance
+   0.5,                                           !- Frame Solar Absorptance
+   0.5,                                           !- Frame Visible Absorptance
+   0.9,                                           !- Frame Thermal Emissivity
+   DividedLite,                                   !- Divider Type
+   0.020,                                         !- Divider Width
+   1,                                             !- Number of Horzontal Dividers
+   1,                                             !- Number of Vertical Dividers
+   0.0,                                           !- Divider Outside Projection
+   0.0,                                           !- Divider Inside Projection
+   9.5,                                           !- Divider Conductance
+   1.0,                                           !- Ratio of divider-edge glass conductance to centre of glass conductance
+   0.5,                                           !- Divider Solar Absorptance
+   0.5,                                           !- Divider Visible Absorptance
+   0.9,                                           !- Divider Thermal Emissivity
+   0.5,                                           !- Outside Reveal Solar Absorptance
+   0.0,                                           !- Inside Sill Depth
+   0.5,                                           !- Inside Sill Solar Absorptance
+   0.0,                                           !- Inside Reveal Depth
+   0.5;                                           !- Inside Reveal Solar Absorptance
+
